@@ -26,6 +26,7 @@ JournalApplication is a Spring Boot-based journaling web application that allows
 - **Testing:** JUnit, Mockito
 - **Containerization:** Docker
 - **Version Control:** Git & GitHub
+- **Authentication:** JWT
 
 ---
 
