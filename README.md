@@ -56,3 +56,42 @@ JournalApplication is a Spring Boot-based journaling web application that allows
 ```bash
 git clone https://github.com/Harsh-Jaiman/JournalApplication.git
 cd JournalApplication
+```
+
+###Environment Variables
+
+1) Create a .env file in the root directory:
+JAVA_EMAIL=your_email@gmail.com
+JAVA_EMAIL_PASSWORD=your_email_password
+MONGODB_URI=mongodb://username:password@host:port/journaldb
+SERVER_PORT=8080
+
+
+2). Replace the values with your credentials.
+
+3). Run Locally (Maven)
+
+4). Clone the repository:
+git clone https://github.com/Harsh-Jaiman/JournalApplication.git
+cd JournalApplication
+
+5). Run the app with Maven:
+mvn spring-boot:run
+
+6). Open your browser at:
+http://localhost:8080/journal
+
+##Run with Docker
+1). Build Docker image:
+docker build -t journalapp .
+
+2). Run Docker container:
+docker run -p 8080:8080 --env-file .env journalapp
+
+3). Access the app at:
+http://localhost:8080/journal
+
+##Testing
+1). Unit tests included with JUnit & Mockito
+Run tests with:
+mvn test
