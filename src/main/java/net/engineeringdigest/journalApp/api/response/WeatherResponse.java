@@ -7,18 +7,24 @@ import lombok.Setter;
 import java.util.List;
 
 @Getter
-@Setter public class WeatherResponse {
-    private Current current;
+@Setter
+public class WeatherResponse {
+    public Current current;
+
 
     @Getter
     @Setter
-    public class Current {
-        private int temperature;
+    public static class Current {
+
+        @JsonProperty("temperature")
+        public int temperature;
+
         @JsonProperty("weather_descriptions")
-        private List<String> weatherDescriptions;
-        private int feelslike;
+        public List<String> weatherDescriptions;
+
+        @JsonProperty("feelslike")
+        public int feelslike;
+
     }
-
-
 }
 

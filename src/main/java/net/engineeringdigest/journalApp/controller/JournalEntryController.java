@@ -19,7 +19,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/journal")
-@Tag(name = "Journal APIs")
 public class JournalEntryController {
 
     @Autowired
@@ -29,7 +28,6 @@ public class JournalEntryController {
     private UserService userService;
 
     @GetMapping
-    @Operation(summary = "Get all journal entries of a user")
     public ResponseEntity<?> getAllJournalEntriesOfUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
@@ -76,6 +74,7 @@ public class JournalEntryController {
         boolean removed = journalEntryService.deleteById(myId, username);
         if (removed) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
         } else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

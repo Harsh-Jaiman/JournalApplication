@@ -1,6 +1,5 @@
 package net.engineeringdigest.journalApp.controller;
 
-import io.swagger.v3.oas.annotations.tags.Tag;
 import net.engineeringdigest.journalApp.api.response.WeatherResponse;
 import net.engineeringdigest.journalApp.entity.User;
 import net.engineeringdigest.journalApp.repository.UserRepository;
@@ -15,25 +14,28 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
-@Tag(name = "User APIs", description = "Read, Update & Delete User")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
     @Autowired
-    private UserRepository userRepository;
+    private WeatherService weatherService;
 
     @Autowired
-    private WeatherService weatherService;
+    private UserRepository userRepository;
 
     @PutMapping
     public ResponseEntity<?> updateUser(@RequestBody User user) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
         User userInDb = userService.findByUserName(userName);
-        userInDb.setUserName(user.getUserName());
-        userInDb.setPassword(user.getPassword());
+        if (user.getUserName() != null && !user.getUserName().isEmpty()) {
+            userInDb.setUserName(user.getUserName());
+        }
+        if (user.getPassword() != null && !user.getPassword().isEmpty()) {
+            userInDb.setPassword(user.getPassword());
+        }
         userService.saveNewUser(userInDb);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
@@ -46,12 +48,14 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<?> greeting() {
+    public ResponseEntity<?> greetings() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         WeatherResponse weatherResponse = weatherService.getWeather("Mumbai");
         String greeting = "";
-        if (weatherResponse != null) {
-            greeting = ", Weather feels like " + weatherResponse.getCurrent().getFeelslike();
+        if (weatherResponse != null && weatherResponse.getCurrent() != null) {
+            greeting = " and the weather feels like " + weatherResponse.getCurrent().getFeelslike() + " degrees.";
+        } else {
+            greeting = " and could not fetch the weather.";
         }
         return new ResponseEntity<>("Hi " + authentication.getName() + greeting, HttpStatus.OK);
     }
