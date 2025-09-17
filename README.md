@@ -1,6 +1,6 @@
 # JournalApplication
 
-JournalApplication is a Spring Boot-based journaling web application that allows users to track thoughts and moods. The application focuses on core Spring Boot features, MongoDB integration, REST APIs, and email notifications.
+JournalApplication is a Spring Boot-based journaling web application that allows users to track thoughts and moods. The application focuses on core Spring Boot features, MongoDB integration, REST APIs, email notifications, and is containerized using Docker.
 
 ---
 
@@ -13,6 +13,7 @@ JournalApplication is a Spring Boot-based journaling web application that allows
 - Unit testing with JUnit and Mockito
 - Simplified project structure using Lombok annotations
 - MongoDB integration with `MongoTemplate` and advanced queries
+- Containerized with Docker for easy deployment
 
 ---
 
@@ -23,6 +24,7 @@ JournalApplication is a Spring Boot-based journaling web application that allows
 - **Email:** Gmail SMTP
 - **Build Tool:** Maven
 - **Testing:** JUnit, Mockito
+- **Containerization:** Docker
 - **Version Control:** Git & GitHub
 
 ---
@@ -35,6 +37,7 @@ JournalApplication is a Spring Boot-based journaling web application that allows
 - Configuration with YAML and environment variables
 - Unit and integration testing using JUnit and Mockito
 - Simplified coding using Project Lombok
+- Dockerized application for container-based deployment
 
 ---
 
@@ -44,6 +47,7 @@ JournalApplication is a Spring Boot-based journaling web application that allows
 
 - Java 17+
 - Maven 3+
+- Docker
 - MongoDB instance
 - Gmail account for email notifications
 
