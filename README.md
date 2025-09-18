@@ -14,7 +14,6 @@
 * Email notifications via Gmail SMTP
 * JWT authentication for secure access
 * Environment-based configuration with YAML & `.env`
-* Unit testing with JUnit & Mockito
 * Advanced MongoDB queries with MongoTemplate & Criteria
 * Simplified code using Lombok annotations
 * Dockerized for deployment
@@ -30,7 +29,6 @@
 * MongoDB
 * Gmail SMTP
 * Maven
-* JUnit, Mockito
 * Docker
 * Git & GitHub
 * JWT authentication
@@ -101,15 +99,6 @@ export const API_BASE_URL = "http://localhost:8080/api";
 ```
 
 ---
-
-### 🧪 Testing
-
-Run backend unit tests:
-
-```bash
-cd backend
-mvn test
-```
 
 ---
 
